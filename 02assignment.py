@@ -1,6 +1,11 @@
+""""
+Madlib: It is a funny story to enjoy adding words
+Author: Timoteo Tapia
+"""
+#import colorama to use colors
 from colorama import *
 
-
+#This is my main() function
 def main():
     print("please enter the following: \n".capitalize())
     words = list_inputs()
@@ -11,6 +16,7 @@ def main():
         prompt_user_two(words)
         story_two(words)
 
+#it is the display of the second story with the words prompted before
 def story_two(words):
     print()
     print("dear {},\n".capitalize().format(words[0]))
@@ -28,6 +34,8 @@ def story_two(words):
     print("         \  /   ")
     print("          \/  \n")
 
+#it prompts to the user by second time a list of words
+#adds the color blue and capitalize person names
 def prompt_user_two(words):
     for number in range(8):
         check_user = True
@@ -41,11 +49,13 @@ def prompt_user_two(words):
                 words[number] = Fore.BLUE + words[number] + Fore.WHITE
                 check_user = False
 
+#saves the second words in a list
 def second_list(words):
     for prompts in prompt_words():
         words.append(prompts)
     return words
 
+# it saves the string will be ask to the user
 def prompt_words():
     person = "Friend's name: "
     adjective = "Adjective: "
@@ -57,6 +67,7 @@ def prompt_words():
     person2 = "Friend's name: "
     return person,adjective,verb,body,number,noun,verb2,person2
 
+#it asks the user if he/she wants to continue with a second story
 def next_story():
     check_answer = True
     while check_answer:
@@ -73,12 +84,14 @@ def next_story():
         else:
             print("\nInsert a valid value\n")
 
+#creates the first list
 def list_inputs():
     words = []
     for prompts in prompt_user():
         words.append(prompts)
     return words
 
+#it prompts to the user a list of words
 def prompt_user(): 
     adjective_prompt = input("adjective: ")
     animal_prompt = input("animal: ")
@@ -88,6 +101,7 @@ def prompt_user():
     verb3_prompt = input("verb: ")
     return adjective_prompt,animal_prompt,verb1_prompt,exclamation_prompt,verb2_prompt,verb3_prompt
 
+#it is the display of the first story with the words prompted before
 def story(words):
     print()
     print("your story is: ".capitalize())  
@@ -99,8 +113,3 @@ def story(words):
     print("right in front of my family.\n\n")
 
 main()
-# words = []
-# second_list(words)
-# prompt_user_two(words)
-# for number in range (8):
-#     print(words[number])
